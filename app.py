@@ -44,10 +44,15 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# --- Load saved model, scaler, and columns ---
-model = pickle.load(open("C:/Users/Windows/Desktop/diabetes_prediction/xgboost_model.pkl", "rb"))
-scaler = pickle.load(open("C:/Users/Windows/Desktop/diabetes_prediction/scaler.pkl", "rb"))
-columns = pickle.load(open("C:/Users/Windows/Desktop/diabetes_prediction/columns.pkl", "rb"))
+# Loading the model, scaler, and columns from local GitHub directory
+with open("xgboost_model.pkl", "rb") as f:
+    model = pickle.load(f)
+
+with open("scaler.pkl", "rb") as f:
+    scaler = pickle.load(f)
+
+with open("columns.pkl", "rb") as f:
+    columns = pickle.load(f)
 
 # --- Streamlit App Layout ---
 st.set_page_config(page_title="Diabetes Predictor", layout="centered")
