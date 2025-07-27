@@ -106,10 +106,9 @@ if st.button("🔍 Predict Now"):
     
     # SHAP explanation
     if st.button("Predict"):
-    st.subheader("🔍 Why this prediction?")
-    # Round input_scaled values to 3 decimal places
+        st.subheader("🔍 Why this prediction?")
+        # Round input_scaled values to 3 decimal places
     input_rounded = np.round(input_scaled, 3)
-
     explainer = shap.Explainer(model)
     shap_values = explainer(pd.DataFrame(input_rounded, columns=columns))
 
