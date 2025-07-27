@@ -114,3 +114,5 @@ if st.button("🔍 Predict Now"):
     # Show SHAP force plot
     shap.plots.force(shap_values[0], matplotlib=True)
     st.pyplot(plt.gcf())
+
+st.caption("Each bar shows how much a feature affected your result. Red means it increased the chance of diabetes, blue means it reduced it.")
