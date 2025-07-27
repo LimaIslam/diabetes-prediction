@@ -103,7 +103,9 @@ if st.button("🔍 Predict Now"):
     
     st.markdown(f'<div class="predict-box">You are {result}</div>', unsafe_allow_html=True)
 
+    
     # SHAP explanation
+    if st.button("Predict"):
     st.subheader("🔍 Why this prediction?")
     # Round input_scaled values to 3 decimal places
     input_rounded = np.round(input_scaled, 3)
@@ -115,4 +117,4 @@ if st.button("🔍 Predict Now"):
     shap.plots.force(shap_values[0], matplotlib=True)
     st.pyplot(plt.gcf())
 
-st.caption("Each bar shows how much a feature affected your result. Red means it increased the chance of diabetes, blue means it reduced it.")
+    st.caption("🔵 Blue features decreased the prediction score (toward Not Diabetic), while 🔴 red features increased it (toward Diabetic).")
