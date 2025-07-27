@@ -107,13 +107,10 @@ if st.button("🔍 Predict Now"):
     # SHAP explanation
     if st.button("Predict"):
         st.subheader("🔍 Why this prediction?")
-        # Round input_scaled values to 3 decimal places
-    input_rounded = np.round(input_scaled, 3)
-    explainer = shap.Explainer(model)
-    shap_values = explainer(pd.DataFrame(input_rounded, columns=columns))
-
-    # Show SHAP force plot
-    shap.plots.force(shap_values[0], matplotlib=True)
-    st.pyplot(plt.gcf())
-
-    st.caption("Each bar shows how much a feature affected your result. 🔴Red means it increased the chance of diabetes, 🔵blue means it reduced it.")
+        input_rounded = np.round(input_scaled, 3) # Round input_scaled values to 3 decimal places
+        explainer = shap.Explainer(model)
+        shap_values = explainer(pd.DataFrame(input_rounded, columns=columns))
+        # Show SHAP force plot
+        shap.plots.force(shap_values[0], matplotlib=True)
+        st.pyplot(plt.gcf())
+        st.caption("Each bar shows how much a feature affected your result. 🔴Red means it increased the chance of diabetes, 🔵blue means it reduced it.")
