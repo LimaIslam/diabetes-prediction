@@ -113,6 +113,6 @@ if st.button("🔍 Predict Now"):
     shap_values = explainer(pd.DataFrame(input_rounded, columns=columns))
 
     # Show SHAP force plot
-    shap.plots.force(shap_values[0], matplotlib=True)
+    shap.plots.waterfall(shap_values[0], show=False)
     st.pyplot(plt.gcf())
     st.caption("Each bar shows how much a feature affected your result. 🔴Red means it increased the chance of diabetes, 🔵Blue means it reduced it.")
